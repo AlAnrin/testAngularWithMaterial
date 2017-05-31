@@ -7,11 +7,16 @@
   <button md-icon-button>
     <md-icon>chat</md-icon>
   </button>
-  <button class="app-button" md-button [mdMenuTriggerFor]="menu">Студентов Студент Студентович</button>
+  <button class="app-button" md-button [mdMenuTriggerFor]="menu">
+    <button md-icon-button>
+      <md-icon>account_circle</md-icon>
+    </button>
+    Студентов Студент Студентович
+  </button>
   <md-menu #menu="mdMenu">
     <button md-menu-item>
-      <md-icon>fingerprint</md-icon>
-      <span>Logout</span>
+      <md-icon>settings</md-icon>
+      <span>Настройки</span>
     </button>
   </md-menu>
 </md-toolbar>
