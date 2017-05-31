@@ -1,33 +1,45 @@
-<md-sidenav-container [class.m2app-dark]="isDarkTheme">
-  <md-toolbar color="primary">
-    <span>TN</span>
-    <span class="spacer"></span>
-    <button md-icon-button>
-      <md-icon>chat</md-icon>
+<md-toolbar color="primary">
+  <span>TN</span>
+  <span class="spacer"></span>
+  <button md-icon-button>
+    <md-icon>search</md-icon>
+  </button>
+  <button md-icon-button>
+    <md-icon>chat</md-icon>
+  </button>
+  <button class="app-button" md-button [mdMenuTriggerFor]="menu">Студентов Студент Студентович</button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item>
+      <md-icon>fingerprint</md-icon>
+      <span>Logout</span>
     </button>
-    <button class="app-button" md-button [mdMenuTriggerFor]="menu">Студентов Студент Студентович</button>
-    <md-menu #menu="mdMenu">
-      <button md-menu-item>
-        <md-icon>fingerprint</md-icon>
-        <span>Logout</span>
-      </button>
-    </md-menu>
-  </md-toolbar>
-  <md-tab-group>
-    <md-tab label="УТК (Учебные курсы)">
-      <md-grid-list cols="7">
-        <md-grid-tile colspan="1">
-          <tree-root [nodes]="nodes"></tree-root>
-        </md-grid-tile>
-        <md-grid-tile class="grid-test-1" colspan="6">
-          <p>
-            Here will be course properties
-          </p>
-        </md-grid-tile>
-      </md-grid-list>
-    </md-tab>
-    <md-tab label="Статистика">
+  </md-menu>
+</md-toolbar>
+<md-tab-group>
+  <md-tab label="УТК (Учебные курсы)">
+    <md-grid-list cols="7" rowHeight="500px">
+      <md-grid-tile colspan="2">
+        <tree-root [nodes]="nodes"></tree-root>
+      </md-grid-tile>
+      <md-grid-tile colspan="5">
+        <div style="display: flex; flex-direction: row;">
+          <div style="display: flex; flex-direction: column; margin: 5px">
+            <md-input-container>
+              <input mdInput placeholder="Название" />
+            </md-input-container>
+            <md-input-container>
+              <input mdInput type="number" placeholder="Часы: ">
+            </md-input-container>
+            <md-input-container>
+              <textarea mdInput></textarea>
+            </md-input-container>
+          </div>
+          <md-icon style="height: 122px; width: 200px; border: gray solid 1px; text-align: center; padding-top: 88px;">photo</md-icon>
+        </div>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-tab>
+  <md-tab label="Статистика">
 
-    </md-tab>
-  </md-tab-group>
-</md-sidenav-container>
+  </md-tab>
+</md-tab-group>
