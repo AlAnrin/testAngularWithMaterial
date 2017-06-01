@@ -7,7 +7,7 @@
   <button md-icon-button>
     <md-icon>chat</md-icon>
   </button>
-  <button class="app-button" md-button [mdMenuTriggerFor]="menu">
+  <button id="appButtonToolbar" class="app-button" md-button [mdMenuTriggerFor]="menu">
     <button md-icon-button>
       <md-icon>account_circle</md-icon>
     </button>
@@ -22,25 +22,35 @@
 </md-toolbar>
 <md-tab-group>
   <md-tab label="УТК (Учебные курсы)">
-    <md-grid-list cols="7" rowHeight="500px">
-      <md-grid-tile colspan="2">
-        <tree-root [nodes]="nodes"></tree-root>
+    <md-grid-list cols="4" rowHeight="300px">
+      <md-grid-tile colspan="1">
+        <md-card style="min-width: 70%; min-height: 70%">
+          <md-card-content>
+            <h2>УТК</h2>
+            <tree-root [nodes]="nodes"></tree-root>
+          </md-card-content>
+        </md-card>
       </md-grid-tile>
-      <md-grid-tile colspan="5">
-        <div style="display: flex; flex-direction: row;">
-          <div style="display: flex; flex-direction: column; margin: 5px">
-            <md-input-container>
-              <input mdInput placeholder="Название" />
-            </md-input-container>
-            <md-input-container>
-              <input mdInput type="number" placeholder="Часы: ">
-            </md-input-container>
-            <md-input-container>
-              <textarea mdInput></textarea>
-            </md-input-container>
-          </div>
-          <md-icon style="height: 122px; width: 200px; border: gray solid 1px; text-align: center; padding-top: 88px;">photo</md-icon>
-        </div>
+      <md-grid-tile colspan="3">
+        <md-card>
+          <md-card-content>
+            <div style="display: flex; flex-direction: row;">
+              <div style="display: flex; flex-direction: column; margin: 5px">
+                <h2>Учебно-тренировочный комплекс</h2>
+                <md-input-container>
+                  <input mdInput placeholder="Название" />
+                </md-input-container>
+                <md-input-container>
+                  <input mdInput type="number" placeholder="Часы: ">
+                </md-input-container>
+                <md-input-container>
+                  <textarea mdInput placeholder="Описание" cols="70"></textarea>
+                </md-input-container>
+              </div>
+              <md-icon md-tooltip="Перетащите сюда изображение" class="missingImage" style="height: 122px; width: 200px;">photo</md-icon>
+            </div>
+          </md-card-content>
+        </md-card>
       </md-grid-tile>
     </md-grid-list>
   </md-tab>
