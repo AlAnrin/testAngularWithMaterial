@@ -1,6 +1,9 @@
 md-sidenav-container.m2app-dark {
   background: black;
 }
+md-sidenav-container {
+  height: 100%;
+}
 
 .app-content {
   padding: 5px;
@@ -8,6 +11,8 @@ md-sidenav-container.m2app-dark {
 
 .app-content md-card {
   margin: 5px;
+  min-width: 250px;
+  min-height: 250px;
 }
 
 .app-sidenav {
@@ -44,9 +49,6 @@ md-sidenav-container.m2app-dark {
   padding: 0;
   min-width: 50px;
 }
-.app-button {
-  margin: 5px;
-}
 
 .app-list {
   border: 1px solid rgba(0,0,0,0.12);
@@ -70,4 +72,45 @@ md-chip {
 
 .app-sidebar-button {
   width: inherit;
+}
+.mat-tab-body-wrapper {
+  height: 100%;
+}
+.spacer {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+.missingImage {
+  border: gray solid 1px;
+  text-align: center;
+  padding-top: 88px;
+}
+.missingImage:hover {
+  border-color: lightgray;
+}
+#appButtonToolbar {
+  margin: 0;
+  height: 100%;
+}
+#appButtonToolbar:hover {
+  margin: 0;
+}
+.one-four-column {
+  width: 20%;
+  margin: 5px;
+}
+.two-four-column {
+  width: 60%;
+  margin: 5px;
+}
+.columnsList {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  width: 76%;
+}
+.rowList {
+  display: flex;
+  flex-direction: row;
 }

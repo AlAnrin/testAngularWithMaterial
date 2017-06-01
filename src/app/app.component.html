@@ -1,60 +1,83 @@
-<md-toolbar color="primary">
-  <span>TN</span>
-  <span class="spacer"></span>
-  <button md-icon-button>
-    <md-icon>search</md-icon>
-  </button>
-  <button md-icon-button>
-    <md-icon>chat</md-icon>
-  </button>
-  <button id="appButtonToolbar" class="app-button" md-button [mdMenuTriggerFor]="menu">
+<md-sidenav-container [class.m2app-dark]="isDarkTheme">
+  <md-toolbar color="primary">
+    <span>TN</span>
+    <span class="spacer"></span>
     <button md-icon-button>
-      <md-icon>account_circle</md-icon>
+      <md-icon>search</md-icon>
     </button>
-    Студентов Студент Студентович
-  </button>
-  <md-menu #menu="mdMenu">
-    <button md-menu-item>
-      <md-icon>settings</md-icon>
-      <span>Настройки</span>
+    <button md-icon-button>
+      <md-icon>chat</md-icon>
     </button>
-  </md-menu>
-</md-toolbar>
-<md-tab-group>
-  <md-tab label="УТК (Учебные курсы)">
-    <md-grid-list cols="4" rowHeight="300px">
-      <md-grid-tile colspan="1">
-        <md-card style="min-width: 70%; min-height: 70%">
-          <md-card-content>
-            <h2>УТК</h2>
-            <tree-root [nodes]="nodes"></tree-root>
-          </md-card-content>
-        </md-card>
-      </md-grid-tile>
-      <md-grid-tile colspan="3">
-        <md-card>
-          <md-card-content>
-            <div style="display: flex; flex-direction: row;">
-              <div style="display: flex; flex-direction: column; margin: 5px">
-                <h2>Учебно-тренировочный комплекс</h2>
-                <md-input-container>
-                  <input mdInput placeholder="Название" />
-                </md-input-container>
-                <md-input-container>
-                  <input mdInput type="number" placeholder="Часы: ">
-                </md-input-container>
-                <md-input-container>
-                  <textarea mdInput placeholder="Описание" cols="70"></textarea>
-                </md-input-container>
+    <button id="appButtonToolbar" md-button [mdMenuTriggerFor]="menu">
+      <button md-icon-button>
+        <md-icon>account_circle</md-icon>
+      </button>
+      {{name}}
+    </button>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item>
+        <md-icon>settings</md-icon>
+        <span>Настройки</span>
+      </button>
+      <button md-menu-item (click)="isDarkTheme = !isDarkTheme">
+        <md-icon>brightness_4</md-icon>
+        <span>Сменить тему</span>
+      </button>
+    </md-menu>
+  </md-toolbar>
+  <md-tab-group>
+    <md-tab label="УТК (Учебные курсы)">
+      <div class="rowList">
+        <div class="one-four-column">
+          <md-card>
+            <md-card-content>
+              <h2>УТК</h2>
+              <tree-root [nodes]="nodes"></tree-root>
+            </md-card-content>
+          </md-card>
+        </div>
+        <div class="two-four-column">
+          <md-card>
+            <md-card-content>
+              <div class="rowList">
+                <div class="columnsList">
+                  <h2>Учебно-тренировочный комплекс</h2>
+                  <md-input-container>
+                    <input mdInput placeholder="Название"/>
+                  </md-input-container>
+                  <md-input-container>
+                    <input mdInput type="number" placeholder="Часы">
+                  </md-input-container>
+                  <md-input-container>
+                    <textarea mdInput placeholder="Описание" cols="70"></textarea>
+                  </md-input-container>
+                </div>
+                <span class="spacer"></span>
+                <md-icon md-tooltip="Перетащите сюда изображение" class="missingImage" style="height: 122px; width: 200px;">photo</md-icon>
               </div>
-              <md-icon md-tooltip="Перетащите сюда изображение" class="missingImage" style="height: 122px; width: 200px;">photo</md-icon>
-            </div>
-          </md-card-content>
-        </md-card>
-      </md-grid-tile>
-    </md-grid-list>
-  </md-tab>
-  <md-tab label="Статистика">
+            </md-card-content>
+          </md-card>
+        </div>
+        <div class="one-four-column">
+          <md-card>
+            <md-card-content>
+              <div class="columnsList">
+                <h3>Свойства УТК</h3>
+                <p>Дата создания:</p>
+                <p>DD/MM/YYYY</p>
+                <p>Дата изменения:</p>
+                <p>DD/MM/YYYY</p>
+              </div>
+            </md-card-content>
+          </md-card>
+        </div>
+      </div>
+    </md-tab>
+    <md-tab label="Статистика">
 
-  </md-tab>
-</md-tab-group>
+    </md-tab>
+  </md-tab-group>
+  <span class="app-action" [class.m2app-dark]="isDarkTheme">
+  <button md-fab><md-icon>check circle</md-icon></button>
+  </span>
+</md-sidenav-container>
