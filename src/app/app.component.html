@@ -32,7 +32,21 @@
           <md-card>
             <md-card-content>
               <h2>УТК</h2>
-              <tree-root [nodes]="nodes"></tree-root>
+              <tree-root [nodes]="nodes" onselect="select()">
+                <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+                  <div class="node-wrapper" [style.padding-left]="node.getNodePadding()">
+                    <tree-node-expander [node]="node"></tree-node-expander>
+                    <div class="node-content-wrapper"
+                         [class.node-content-wrapper-active]="node.isActive"
+                         [class.node-content-wrapper-focused]="node.isFocused"
+                         (click)="node.mouseAction('click', $event)"
+                         (dblclick)="node.mouseAction('dblClick', $event)"
+                         (contextmenu)="node.mouseAction('contextMenu', $event)">
+                      <tree-node-content [node]="node" [index]="index"></tree-node-content>
+                    </div>
+                  </div>
+                </ng-template>
+              </tree-root>
             </md-card-content>
           </md-card>
         </div>
@@ -43,13 +57,13 @@
                 <div class="columnsList">
                   <h2>Учебно-тренировочный комплекс</h2>
                   <md-input-container>
-                    <input mdInput placeholder="Название"/>
+                    <input mdInput placeholder="Название" [value]="selectCourse.name" (input)="selectCourse.name=$event.target.value"/>
                   </md-input-container>
                   <md-input-container>
-                    <input mdInput type="number" placeholder="Часы">
+                    <input mdInput type="number" placeholder="Часы" [value]="selectCourse.academHours" (input)="selectCourse.academHours=$event.target.value">
                   </md-input-container>
                   <md-input-container>
-                    <textarea mdInput placeholder="Описание" cols="70"></textarea>
+                    <textarea mdInput placeholder="Описание" cols="70" [value]="selectCourse.description" (input)="selectCourse.description=$event.target.value"></textarea>
                   </md-input-container>
                 </div>
                 <span class="spacer"></span>
@@ -64,9 +78,9 @@
               <div class="columnsList">
                 <h3>Свойства УТК</h3>
                 <p>Дата создания:</p>
-                <p>DD/MM/YYYY</p>
+                <p>{{selectCourse.dateCreate | selectCourse:format}}</p>
                 <p>Дата изменения:</p>
-                <p>DD/MM/YYYY</p>
+                <p>{{selectCourse.dateChange}}</p>
               </div>
             </md-card-content>
           </md-card>

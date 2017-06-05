@@ -1,5 +1,6 @@
 import { Component, Optional,  } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
+import {course} from './course';
 
 @Component({
   selector: 'app-root',
@@ -9,89 +10,16 @@ import { MdDialogRef } from '@angular/material';
 export class AppComponent {
   isDarkTheme = false;
   name = 'Ганнибал Лектор Кулинарович';
-  nodes = [
-    {
-      id: 1,
-      name: 'root1',
-      children: [
-        { id: 2, name: 'child1' },
-        { id: 3, name: 'child2' },
-        { id: 8, name: 'child2' },
-        { id: 9, name: 'child2' },
-        { id: 10, name: 'child2' },
-        { id: 11, name: 'child2' }
-      ]
-    },
-    {
-      id: 4,
-      name: 'root2',
-      children: [
-        { id: 5, name: 'child2.1' },
-        {
-          id: 6,
-          name: 'child2.2',
-          children: [
-            { id: 7, name: 'subsub' },
-            { id: 12, name: 'subsub' },
-            { id: 13, name: 'subsub' },
-            { id: 14, name: 'subsub' },
-            { id: 15, name: 'subsub' },
-            { id: 16, name: 'subsub' }
-          ]
-        }
-      ]
-    },
-    {
-      id: 1,
-      name: 'root1',
-      children: [
-        { id: 2, name: 'child1' },
-        { id: 3, name: 'child2' },
-        { id: 8, name: 'child2' },
-        { id: 9, name: 'child2' },
-        { id: 10, name: 'child2' },
-        { id: 11, name: 'child2' }
-      ]
-    },
-    {
-      id: 4,
-      name: 'root2',
-      children: [
-        { id: 5, name: 'child2.1' },
-        {
-          id: 6,
-          name: 'child2.2',
-          children: [
-            { id: 7, name: 'subsub' },
-            { id: 12, name: 'subsub' },
-            { id: 13, name: 'subsub' },
-            { id: 14, name: 'subsub' },
-            { id: 15, name: 'subsub' },
-            { id: 16, name: 'subsub' }
-          ]
-        }
-      ]
-    },
-    {
-      id: 4,
-      name: 'root2',
-      children: [
-        { id: 5, name: 'child2.1' },
-        {
-          id: 6,
-          name: 'child2.2',
-          children: [
-            { id: 7, name: 'subsub' },
-            { id: 12, name: 'subsub' },
-            { id: 13, name: 'subsub' },
-            { id: 14, name: 'subsub' },
-            { id: 15, name: 'subsub' },
-            { id: 16, name: 'subsub' }
-          ]
-        }
-      ]
-    }
-  ];
+  utkbis1 = new course('dd:mm:yy h:mm:ss', 2, 'УТК-БИС1', [
+    new course('dd:mm:yy h:mm:ss', 4, '1', [], '', 40, '', new Date(), new Date()),
+    new course('dd:mm:yy h:mm:ss', 5, '2', [], '', 40, '', new Date(), new Date())], 'Учебно тренировочные комплексы', 40, 'бла-бла-утк', new Date(), new Date());
+  utkbis2 = new course('dd:mm:yy h:mm:ss', 3, 'УТК-БИС2', [
+    new course('dd:mm:yy h:mm:ss', 6, '3', [], '', 40, '', new Date(), new Date()),
+    new course('dd:mm:yy h:mm:ss', 7, '4', [], '', 40, '', new Date(), new Date()),
+    new course('dd:mm:yy h:mm:ss', 8, '5', [], '', 40, '', new Date(), new Date())], '', 40, '', new Date(), new Date());
+  utk = new course('dd:mm:yy h:mm:ss', 1, 'УТК', [this.utkbis1, this.utkbis2], '', 40, '', new Date(), new Date());
+  nodes = [this.utk];
+  selectCourse = this.utkbis1;
 }
 
 
