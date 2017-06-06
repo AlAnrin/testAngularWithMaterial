@@ -114,3 +114,7 @@ md-chip {
   display: flex;
   flex-direction: row;
 }
+#md-card-left-tree-view {
+  max-height: 800px;
+  overflow: hidden;
+}

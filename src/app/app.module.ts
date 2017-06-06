@@ -7,6 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { TreeModule } from 'angular-tree-component';
 import { AppComponent, DialogContentComponent } from './app.component';
+import { PerfectScrollbarModule } from 'angular2-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'angular2-perfect-scrollbar';
+
+const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   imports: [
@@ -14,7 +20,8 @@ import { AppComponent, DialogContentComponent } from './app.component';
     FormsModule,
     MaterialModule,
     BrowserAnimationsModule,
-    TreeModule
+    TreeModule,
+    PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG)
   ],
   declarations: [AppComponent, DialogContentComponent],
   entryComponents: [DialogContentComponent],
