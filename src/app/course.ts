@@ -1,6 +1,5 @@
 import {Attribute} from '@angular/core';
 export class course {
-  format: string;
   id: number;
   name: string;
   fullName: string;
@@ -9,11 +8,11 @@ export class course {
   children: Array<course>;
   expanded: boolean;
   checked: boolean;
-  dateCreate: Date;
-  dateChange: Date;
+  dateCreate: string;
+  dateChange: string;
 
-  constructor(@Attribute('format') format, id: number, name: string, children: Array<course>,
-              fullName: string, academHours: number, description: string, dateCreate: Date, dateChange: Date) {
+  constructor(id: number, name: string, children: Array<course>,
+              fullName: string, academHours: number, description: string, dateCreate: string, dateChange: string) {
     this.id = id;
     this.name = name;
     this.children = children;
@@ -24,7 +23,6 @@ export class course {
     this.checked = false;
     this.dateCreate = dateCreate;
     this.dateChange = dateChange;
-    this.format = format;
   }
   click() {
     this.checked = !this.checked;

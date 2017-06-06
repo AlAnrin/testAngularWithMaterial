@@ -10,14 +10,16 @@ import {course} from './course';
 export class AppComponent {
   isDarkTheme = false;
   name = 'Ганнибал Лектор Кулинарович';
-  utkbis1 = new course('dd:mm:yy h:mm:ss', 2, 'УТК-БИС1', [
-    new course('dd:mm:yy h:mm:ss', 4, '1', [], '', 40, '', new Date(), new Date()),
-    new course('dd:mm:yy h:mm:ss', 5, '2', [], '', 40, '', new Date(), new Date())], 'Учебно тренировочные комплексы', 40, 'бла-бла-утк', new Date(), new Date());
-  utkbis2 = new course('dd:mm:yy h:mm:ss', 3, 'УТК-БИС2', [
-    new course('dd:mm:yy h:mm:ss', 6, '3', [], '', 40, '', new Date(), new Date()),
-    new course('dd:mm:yy h:mm:ss', 7, '4', [], '', 40, '', new Date(), new Date()),
-    new course('dd:mm:yy h:mm:ss', 8, '5', [], '', 40, '', new Date(), new Date())], '', 40, '', new Date(), new Date());
-  utk = new course('dd:mm:yy h:mm:ss', 1, 'УТК', [this.utkbis1, this.utkbis2], '', 40, '', new Date(), new Date());
+  utkbis1 = new course(2, 'УТК-БИС1', [
+    new course(4, '1', [], '', 40, '', new Date().toLocaleString(), new Date().toLocaleString()),
+    new course(5, '2', [], '', 40, '', new Date().toLocaleString(), new Date().toLocaleString())],
+    'Учебно тренировочные комплексы', 40, 'бла-бла-утк', new Date().toLocaleString(), new Date().toLocaleString());
+  utkbis2 = new course(3, 'УТК-БИС2', [
+    new course(6, '3', [], '', 40, '', new Date().toLocaleString(), new Date().toLocaleString()),
+    new course(7, '4', [], '', 40, '', new Date().toLocaleString(), new Date().toLocaleString()),
+    new course(8, '5', [], '', 40, '', new Date().toLocaleString(), new Date().toLocaleString())],
+    '', 40, '', new Date().toLocaleString(), new Date().toLocaleString());
+  utk = new course(1, 'УТК', [this.utkbis1, this.utkbis2], '', 40, '', new Date().toLocaleString(), new Date().toLocaleString());
   nodes = [this.utk];
   selectCourse = this.utkbis1;
 }
