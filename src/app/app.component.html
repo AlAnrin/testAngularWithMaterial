@@ -31,26 +31,18 @@
         <div class="one-four-column">
           <md-card>
             <md-card-content>
-              <h2>УТК</h2>
+              <div class="rowList">
+                <h2>УТК</h2>
+                <span class="spacer"></span>
+                <button md-icon-button (click)="select(tree)">
+                  <md-icon>info_outline</md-icon>
+                </button>
+              </div>
               <md-input-container style="width: 98%">
                 <input mdInput placeholder="Фильтр" #filter (keyup)="filterNodes(filter.value, tree)"
                 style="width: 95%"/>
               </md-input-container>
-              <tree-root #tree [nodes]="nodes" onselect="select()">
-                <ng-template #treeNodeWrapperTemplate let-node let-index="index">
-                  <div class="node-wrapper" [style.padding-left]="node.getNodePadding()">
-                    <tree-node-expander [node]="node"></tree-node-expander>
-                    <div class="node-content-wrapper"
-                         [class.node-content-wrapper-active]="node.isActive"
-                         [class.node-content-wrapper-focused]="node.isFocused"
-                         (click)="node.mouseAction('click', $event)"
-                         (dblclick)="node.mouseAction('dblClick', $event)"
-                         (contextmenu)="node.mouseAction('contextMenu', $event)">
-                      <tree-node-content [node]="node" [index]="index"></tree-node-content>
-                    </div>
-                  </div>
-                </ng-template>
-              </tree-root>
+              <tree-root #tree [nodes]="nodes"></tree-root>
             </md-card-content>
           </md-card>
         </div>
@@ -64,6 +56,9 @@
                     <input mdInput placeholder="Название" [value]="selectCourse.name" (input)="selectCourse.name=$event.target.value"/>
                   </md-input-container>
                   <md-input-container>
+                    <input mdInput placeholder="Полное название" [value]="selectCourse.fullName" (input)="selectCourse.fullName=$event.target.value"/>
+                  </md-input-container>
+                  <md-input-container>
                     <input mdInput type="number" placeholder="Часы" [value]="selectCourse.academHours" (input)="selectCourse.academHours=$event.target.value">
                   </md-input-container>
                   <md-input-container>
@@ -71,7 +66,7 @@
                   </md-input-container>
                 </div>
                 <span class="spacer"></span>
-                <md-icon md-tooltip="Перетащите сюда изображение" class="missingImage" style="height: 122px; width: 200px;">photo</md-icon>
+                <md-icon md-tooltip="Перетащите сюда изображение" class="missingImage" style="height: 122px; width: 200px; margin: auto">photo</md-icon>
               </div>
             </md-card-content>
           </md-card>
