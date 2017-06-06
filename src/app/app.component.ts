@@ -1,6 +1,27 @@
 import { Component, Optional,  } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 import {course} from './course';
+import { TreeNode, TREE_ACTIONS, KEYS, IActionMapping } from 'angular-tree-component';
+
+const actionMapping: IActionMapping = {
+  mouse: {
+    contextMenu: (tree, node, $event) => {
+      $event.preventDefault();
+      alert(`context menu for ${node.data.name}`);
+    },
+    dblClick: (tree, node, $event) => {
+      if (node.hasChildren) TREE_ACTIONS.TOGGLE_EXPANDED(tree, node, $event);
+    },
+    click: (tree, node, $event) => {
+      $event.shiftKey
+        ? TREE_ACTIONS.TOGGLE_SELECTED_MULTI(tree, node, $event)
+        : TREE_ACTIONS.TOGGLE_SELECTED(tree, node, $event)
+    }
+  },
+  keys: {
+    [KEYS.ENTER]: (tree, node, $event) => alert(`This is ${node.data.name}`)
+  }
+};
 
 @Component({
   selector: 'app-root',
@@ -22,6 +43,9 @@ export class AppComponent {
   utk = new course(1, 'УТК', [this.utkbis1, this.utkbis2], '', 40, '', new Date().toLocaleString(), new Date().toLocaleString());
   nodes = [this.utk];
   selectCourse = this.utkbis1;
+  filterNodes(text, tree) {
+    tree.treeModel.filterNodes(text);
+  }
 }
 
 

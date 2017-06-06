@@ -32,7 +32,11 @@
           <md-card>
             <md-card-content>
               <h2>УТК</h2>
-              <tree-root [nodes]="nodes" onselect="select()">
+              <md-input-container style="width: 98%">
+                <input mdInput placeholder="Фильтр" #filter (keyup)="filterNodes(filter.value, tree)"
+                style="width: 95%"/>
+              </md-input-container>
+              <tree-root #tree [nodes]="nodes" onselect="select()">
                 <ng-template #treeNodeWrapperTemplate let-node let-index="index">
                   <div class="node-wrapper" [style.padding-left]="node.getNodePadding()">
                     <tree-node-expander [node]="node"></tree-node-expander>
