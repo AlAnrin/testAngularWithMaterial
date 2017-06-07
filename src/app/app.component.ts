@@ -20,13 +20,13 @@ export class AppComponent {
     new course(8, '5', [], '', 10, '', new Date().toLocaleString(), new Date().toLocaleString())],
     '', 80, '', new Date().toLocaleString(), new Date().toLocaleString());
   utk = new course(1, 'УТК', [this.utkbis1, this.utkbis2], '', 40, '', new Date().toLocaleString(), new Date().toLocaleString());
-  nodes = [this.utk,this.utk,this.utk,this.utk,this.utk,this.utk,this.utk,this.utk,this.utk,this.utk];
+  nodes = [this.utk];
   selectCourse = this.utk;
   filterNodes(text, tree) {
     tree.treeModel.filterNodes(text);
   }
-  select(tree) {
-    this.selectCourse = tree.treeModel.activeNodes[0].data;
+  select(node) {
+    this.selectCourse = node.data;
   }
 }
 

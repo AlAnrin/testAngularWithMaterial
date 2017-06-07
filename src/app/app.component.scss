@@ -89,11 +89,11 @@ md-chip {
 .missingImage:hover {
   border-color: lightgray;
 }
-#appButtonToolbar {
+.appButtonToolbar {
   margin: 0;
   height: 100%;
 }
-#appButtonToolbar:hover {
+.appButtonToolbar:hover {
   margin: 0;
 }
 .one-four-column {
@@ -115,6 +115,13 @@ md-chip {
   flex-direction: row;
 }
 #md-card-left-tree-view {
+  min-height: 400px;
   max-height: 800px;
   overflow: hidden;
+}
+#md-button-tree-view {
+
+}
+#md-button-tree-view:hover {
+  background-color: transparent;
 }

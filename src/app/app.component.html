@@ -8,7 +8,7 @@
     <button md-icon-button>
       <md-icon>chat</md-icon>
     </button>
-    <button id="appButtonToolbar" md-button [mdMenuTriggerFor]="menu">
+    <button class="appButtonToolbar" md-button [mdMenuTriggerFor]="menu">
       <button md-icon-button>
         <md-icon>account_circle</md-icon>
       </button>
@@ -31,19 +31,17 @@
         <div class="one-four-column">
           <md-card id="md-card-left-tree-view">
             <md-card-content>
-              <div class="rowList">
-                <h2>УТК</h2>
-                <span class="spacer"></span>
-                <button md-icon-button (click)="select(tree)">
-                  <md-icon>info_outline</md-icon>
-                </button>
-              </div>
+              <h2>УТК</h2>
               <md-input-container style="width: 98%">
                 <input mdInput placeholder="Фильтр" #filter (keyup)="filterNodes(filter.value, tree)"
                 style="width: 95%"/>
               </md-input-container>
               <perfect-scrollbar class="container" style="overflow: auto; max-height: 700px">
-                <tree-root #tree [nodes]="nodes" (ondblclick)="select(tree)" style="overflow: auto"></tree-root>
+                <tree-root #tree [nodes]="nodes" style="overflow: auto">
+                  <ng-template #treeNodeTemplate let-node>
+                    <span (click)="select(node)">{{ node.data.name }}</span>
+                  </ng-template>
+                </tree-root>
               </perfect-scrollbar>
             </md-card-content>
           </md-card>
